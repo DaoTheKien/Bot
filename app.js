@@ -66,8 +66,10 @@ function processPostback(event) {
         name = bodyObj.first_name;
         greeting = "Hi " + name + ". ";
       }
-      var message = greeting + "My name is SP Movie Bot. I can tell you various details regarding movies. What movie would you like to know about?";
-      sendMessage(senderId, {text: message});
+      var message = greeting + "VAPE Tau Dien Tu xin chao";
+      var message1 = "Shop là nơi uy tín hàng đầu dành cho vaper tại Việt nam với nguyên tắc.Nói không với clone!";
+      var message2 = "Bắt đầu chat với chúng tôi hoặc lựa chọn các menu tư vấn nhanh dưới đây";
+      sendMessage(senderId, {text: message, message1, message2});
     });
   }
 }
