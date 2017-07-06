@@ -96,7 +96,7 @@ function processPostback(event) {
       sendMessage(senderId, {text: message});
       sendMessage(senderId, {text: message1});
       sendMessage(senderId, {text: message2});
-      sendMessage(senderId, {text: first});
+      sendMessage(senderId, {attachment: first});
     });
   }
 }
