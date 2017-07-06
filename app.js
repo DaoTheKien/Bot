@@ -69,9 +69,34 @@ function processPostback(event) {
       var message = greeting + "VAPE Tau Dien Tu xin chao";
       var message1 = "Shop là nơi uy tín hàng đầu dành cho vaper tại Việt nam với nguyên tắc.Nói không với clone!";
       var message2 = "Bắt đầu chat với chúng tôi hoặc lựa chọn các menu tư vấn nhanh dưới đây";
+      var first {
+        "message":{
+          "attachment":{
+            "type":"template",
+            "payload":{
+              "template_type":"button",
+              "text":"What do you want to do next?",
+              "buttons":[
+                {
+                  "type":"web_url",
+                  "url":"https://www.taudientu.com/",
+                  "title":"Show Website"
+                },
+                {
+                  "type":"postback",
+                  "title":"Start Chatting",
+                  "payload":"USER_DEFINED_PAYLOAD"
+                }
+              ]
+            }
+          }
+      }
+      };
+
       sendMessage(senderId, {text: message});
       sendMessage(senderId, {text: message1});
       sendMessage(senderId, {text: message2});
+      sendMessage(senderId, {text: first});
     });
   }
 }
@@ -92,28 +117,3 @@ function sendMessage(recipientId, message) {
     }
   });
 }
-
-var first {
-  "message":{
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"button",
-        "text":"What do you want to do next?",
-        "buttons":[
-          {
-            "type":"web_url",
-            "url":"https://www.taudientu.com/",
-            "title":"Show Website"
-          },
-          {
-            "type":"postback",
-            "title":"Start Chatting",
-            "payload":"USER_DEFINED_PAYLOAD"
-          }
-        ]
-      }
-    }
-}
-};
-sendMessage(senderId, {text: first});
