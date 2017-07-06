@@ -70,8 +70,6 @@ function processPostback(event) {
       var message1 = "Shop là nơi uy tín hàng đầu dành cho vaper tại Việt nam với nguyên tắc.Nói không với clone!";
       var message2 = "Bắt đầu chat với chúng tôi hoặc lựa chọn các menu tư vấn nhanh dưới đây";
       var first {
-        "message":{
-          "attachment":{
             "type":"template",
             "payload":{
               "template_type":"button",
@@ -89,8 +87,6 @@ function processPostback(event) {
                 }
               ]
             }
-          }
-      }
       };
 
       sendMessage(senderId, {text: message});
