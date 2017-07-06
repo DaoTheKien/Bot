@@ -92,15 +92,15 @@ function processPostback(event) {
         sendMessage(senderId, {text: message});
       }, 100);
 
-      setTimeout({ function ()
+      setTimeout( function () {
         sendMessage(senderId, {text: message1});
       },110);
 
-      setTimeout({ function ()
+      setTimeout( function () {
         sendMessage(senderId, {text: message2});
       },120);
 
-      setTimeout({ function () 
+      setTimeout( function () {
         sendMessage(senderId, {attachment: first});
       }, 130)
     });
