@@ -88,11 +88,20 @@ function processPostback(event) {
               ]
             }
       };
+      setTimeout(
+      {sendMessage(senderId, {text: message});}, 100);
 
-      sendMessage(senderId, {text: message});
-      sendMessage(senderId, {text: message1});
-      sendMessage(senderId, {text: message2});
-      sendMessage(senderId, {attachment: first});
+      setTimeout({
+        sendMessage(senderId, {text: message1});
+      },110);
+
+      setTimeout({
+        sendMessage(senderId, {text: message2});
+      },120);
+
+      setTimeout({
+        sendMessage(senderId, {attachment: first});
+      }, 130)
     });
   }
 }
