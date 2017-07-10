@@ -160,10 +160,13 @@ function processPostback(event) {
       setTimeout( function () {
         sendMessage(senderId, {attachment: first});
       }, 130);
+      setTimeout( function () {
+        sendMessage(senderId, {text:message3});
+      }, 150);
 
       setTimeout( function () {
         sendMessage(senderId, {attachment: productTest});
-      }, 150)
+      }, 180)
 
 
     });
