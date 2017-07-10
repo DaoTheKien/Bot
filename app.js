@@ -69,6 +69,7 @@ function processPostback(event) {
       var message = greeting + "VAPE Tau Dien Tu xin chao";
       var message1 = "Shop là nơi uy tín hàng đầu dành cho vaper tại Việt nam với nguyên tắc.Nói không với clone!";
       var message2 = "Bắt đầu chat với chúng tôi hoặc lựa chọn các menu tư vấn nhanh dưới đây";
+      var message3 = "Đây là một số VAPE & tinh dầu mới về tại shop. Xin mời bạn xem qua nhé";
       var first = {
             "type":"template",
             "payload":{
@@ -162,7 +163,7 @@ function processPostback(event) {
 
       setTimeout( function () {
         sendMessage(senderId, {attachment: productTest});
-      }, 140);
+      }, 150)
 
 
     });
