@@ -151,22 +151,22 @@ function processPostback(event) {
 
       setTimeout( function () {
         sendMessage(senderId, {text: message1});
-      },110);
+      },1000);
 
       setTimeout( function () {
         sendMessage(senderId, {text: message2});
-      },120);
+      },2000);
 
       setTimeout( function () {
         sendMessage(senderId, {attachment: first});
-      }, 200);
+      }, 5000);
       setTimeout( function () {
         sendMessage(senderId, {text:message3});
-      }, 150);
+      }, 3000);
 
       setTimeout( function () {
         sendMessage(senderId, {attachment: productTest});
-      }, 180)
+      }, 4000)
 
 
     });
