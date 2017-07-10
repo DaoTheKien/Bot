@@ -166,7 +166,7 @@ function processPostback(event) {
 
       setTimeout( function () {
         sendMessage(senderId, {attachment: productTest});
-      }, 170)
+      }, 180)
 
 
     });
