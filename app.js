@@ -77,14 +77,19 @@ function processPostback(event) {
               "text":"What do you want to do next?",
               "buttons":[
                 {
+                  "title":"Mua sắm",
+                  "type":"postback",
+                  "payload":"SHOPPING_PAYLOAD"
+                },
+                {
                   "type":"web_url",
                   "url":"https://www.taudientu.com/",
                   "title":"Show Website"
                 },
                 {
                   "type":"postback",
-                  "title":"Start Chatting",
-                  "payload":"USER_DEFINED_PAYLOAD"
+                  "title":"Tu van them",
+                  "payload":"MORE_INFO_PAYLOAD"
                 }
               ]
             }
