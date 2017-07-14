@@ -222,7 +222,26 @@ function processPostback(event) {
 
 
   };
+
+
+
 };
+
+function get(input){
+  var test = {
+    "title": input[i].title,
+    "image_url": images[i],
+    "buttons": [
+       {
+          "type": "postback",
+          "payload": `C${input[i].id}`,
+          "title": "Chi tiết"
+       }
+    ]
+ };
+ sendMessage(senderId, {attachment: test});
+  }
+}
 
 // function processMessage(event) {
 //   var senderId = event.sender.id;
