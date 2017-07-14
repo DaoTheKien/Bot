@@ -1,6 +1,6 @@
 const Shopify = require('shopify-api-node');
 
-const Shopify = new shopifyAPI({
+const shopify = new Shopify({
   shopName: 'caphetau', // MYSHOP.myshopify.com
   apiKey: '17cfdde2fcd7945875e0fe6c2', // Your API key
   password: '81baa2ea778b271889789e10581e8979'
@@ -185,7 +185,7 @@ function processPostback(event) {
 
 
     });
-  }
+  };
 
   // if (payload === "SHOPPING_PAYLOAD") {
   //
