@@ -6,7 +6,7 @@ const shopify = new Shopify({
   password: '81baa2ea778b271889789e10581e8979'
 });
 
-var url = 'https://17cfdde2fcd7945875e0d1acf50fe6c2:81baa2ea778b271889789e10581e8979@caphetau.myshopify.com/admin/products.json?fields=images,title';
+var url = 'https://17cfdde2fcd7945875e0d1acf50fe6c2:81baa2ea778b271889789e10581e8979@caphetau.myshopify.com/admin/custom_collections.json?fields=id,title';
 
 var express = require("express");
 var request = require("request");
@@ -236,6 +236,63 @@ function sendMessage(recipientId, message) {
     }
   });
 };
+
+function getImage(array) {
+   var imageArray = [];
+
+   for (i = 0; i < array.length; i++) {
+      if (_.isNull(array[i])) { continue; }
+      if (_.isEmpty(array[i])) { continue; }
+      if (_.isNull(array[i].images)) { continue; }
+      if (_.isNull(array[i].image)) {
+         imageArray.push('https://www.theclementimall.com/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png');
+         continue;
+      }
+      if (_.has(array[i],'image')) {
+         var image = array[i].image.src;
+         imageArray.push(image);
+         continue;
+         // console.log(imageArray);
+      }
+      if (_.has(array[i],'images')) {
+         var image = array[i].images[0].src;
+         imageArray.push(image);
+         continue;
+      }
+      if (_.isEmpty(array[i].images)) {
+         imageArray.push('https://www.theclementimall.com/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png');
+         continue;
+      }
+
+   };
+   return imageArray;
+};
+
+
+function addElement(input) {
+   var elements = [];
+   var images = getImage(input);
+   for (i = 0; i < 10; i++) {
+      if (_.isEmpty(input[i])) { break; }
+      else {
+
+         var element = {
+            "title": input[i].title,
+            "image_url": images[i],
+            "buttons": [
+               {
+                  "type": "postback",
+                  "payload": `C${input[i].id}`,
+                  "title": "Chi tiết"
+               }
+            ]
+         };
+         elements.push(element);
+      }
+   }
+   return elements;
+};
+
 
 function display(source) {
    var addedElements = addElement(source);
