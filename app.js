@@ -187,40 +187,40 @@ function processPostback(event) {
     });
   };
 
-  // if (payload === "SHOPPING_PAYLOAD") {
-  //
-  //   request({
-  //     url: url,
-  //     json: true
-  //   }, (err, response, body) => {
-  //     var customCollection = body.custom_collection;
-  //     customCollection[0].image = {'src': 'https://external.xx.fbcdn.net/safe_image.php?d=AQBbJwEqF8YUvzsK&url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F1023%2F1927%2Fproducts%2FMUTXuXjfQxymW1HG8ZJq_Original-samsung-icr18650-icr-18650-icr18650-22f-Protected-18650-battery-high-quality-2200mah-3-7v-li_764x400_pad.jpg%3Fv%3D1492238290&_nc_hash=AQAyPcWAQfxSKO53'}
-  //     customCollection[1].image = {'src': 'https://external.xx.fbcdn.net/safe_image.php?d=AQCdHhci4GwBImIl&url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F1023%2F1927%2Fproducts%2FBrewichDare_764x400_pad.jpg%3Fv%3D1492237919&_nc_hash=AQCnJxSrx5ajYx8K'}
-  //     customCollection[2].image = {'src': 'https://external.xx.fbcdn.net/safe_image.php?d=AQDKJ-ajdU1mHB76&url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F1023%2F1927%2Fproducts%2Fewsad_764x400_pad.jpg%3Fv%3D1492237924&_nc_hash=AQAaF61ORoCjlDZ4'}
-  //     sendMessage(senderId, {text: messages3});
-  //     shopify.smartCollection.list()
-  //     .then(collection => {
-  //       collection = customCollection.concat(collection);
-  //       sendMessage(senderId, display(collection));
-  //     })
-  //     .catch(err => console.error(err));
-  //   });
-  // };
+  if (payload === "SHOPPING_PAYLOAD") {
+
+    request({
+      url: url,
+      json: true
+    }, (err, response, body) => {
+      var customCollection = body.custom_collection;
+      customCollection[0].image = {'src': 'https://external.xx.fbcdn.net/safe_image.php?d=AQBbJwEqF8YUvzsK&url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F1023%2F1927%2Fproducts%2FMUTXuXjfQxymW1HG8ZJq_Original-samsung-icr18650-icr-18650-icr18650-22f-Protected-18650-battery-high-quality-2200mah-3-7v-li_764x400_pad.jpg%3Fv%3D1492238290&_nc_hash=AQAyPcWAQfxSKO53'}
+      customCollection[1].image = {'src': 'https://external.xx.fbcdn.net/safe_image.php?d=AQCdHhci4GwBImIl&url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F1023%2F1927%2Fproducts%2FBrewichDare_764x400_pad.jpg%3Fv%3D1492237919&_nc_hash=AQCnJxSrx5ajYx8K'}
+      customCollection[2].image = {'src': 'https://external.xx.fbcdn.net/safe_image.php?d=AQDKJ-ajdU1mHB76&url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F1023%2F1927%2Fproducts%2Fewsad_764x400_pad.jpg%3Fv%3D1492237924&_nc_hash=AQAaF61ORoCjlDZ4'}
+      sendMessage(senderId, {text: messages3});
+      shopify.smartCollection.list()
+      .then(collection => {
+        collection = customCollection.concat(collection);
+        sendMessage(senderId, display(collection));
+      })
+      .catch(err => console.error(err));
+    });
+  };
 };
 
-// function processMessage(event) {
-//   var senderId = event.sender.id;
-//   var message = event.message.text;
-//   if (message === "View more") {
-//     shopify.smartCollection.list()
-//     .then(collection => {
-//       sendMessage(senderId, display(collection.splice(7)));
-//     })
-//     .catch(err => console.error(err))
-//   }
-// };
+function processMessage(event) {
+  var senderId = event.sender.id;
+  var message = event.message.text;
+  if (message === "View more") {
+    shopify.smartCollection.list()
+    .then(collection => {
+      sendMessage(senderId, display(collection.splice(7)));
+    })
+    .catch(err => console.error(err))
+  }
+};
 
-// sends message to user
+//sends message to user
 function sendMessage(recipientId, message) {
   request({
     url: "https://graph.facebook.com/v2.6/me/messages",
@@ -237,33 +237,33 @@ function sendMessage(recipientId, message) {
   });
 };
 
-// function display(source) {
-//    var addedElements = addElement(source);
-//
-//    function quick_replies(array) {
-//       if (array.length < 10) { return; }
-//       else {
-//          return [
-//             {
-//                "content_type": "text",
-//                "title": "View more",
-//                "payload": "VIEW_MORE_PAYLOAD"
-//             }
-//          ]
-//       }
-//    };
-//
-//    var data = {
-//       "attachment": {
-//          "type": "template",
-//          "payload": {
-//             "template_type": "generic",
-//             // "image_aspect_ratio": "square",
-//             "elements": addedElements
-//          }
-//       },
-//       "quick_replies": quick_replies(source)
-//    };
-//
-//    return data;
-// };
+function display(source) {
+   var addedElements = addElement(source);
+
+   function quick_replies(array) {
+      if (array.length < 10) { return; }
+      else {
+         return [
+            {
+               "content_type": "text",
+               "title": "View more",
+               "payload": "VIEW_MORE_PAYLOAD"
+            }
+         ]
+      }
+   };
+
+   var data = {
+      "attachment": {
+         "type": "template",
+         "payload": {
+            "template_type": "generic",
+            // "image_aspect_ratio": "square",
+            "elements": addedElements
+         }
+      },
+      "quick_replies": quick_replies(source)
+   };
+
+   return data;
+};
