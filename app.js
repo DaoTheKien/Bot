@@ -271,7 +271,7 @@ function processPostback(event) {
     //
     //
     // })
-    sendMessage(senderId, {text: "fuk you"});
+    sendMessage(senderId, {attachment: productTest});
 
   }
 };
