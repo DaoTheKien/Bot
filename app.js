@@ -231,11 +231,12 @@ function processPostback(event) {
   }, (err, response, body) => {
     var smartCollection = body.smart_collections;
     var element = {
-      "type": "template"
+      "type": "template",
       "payload": {
+        "template_type": "generic",
         "elements": {
           "title": smartCollection.title,
-          "image_url": smartCollection..image.src
+          "image_url": smartCollection.image.src
         }
       }
     }
