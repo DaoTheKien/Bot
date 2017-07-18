@@ -148,10 +148,7 @@ function processPostback(event) {
 
   if (payload === "SHOPPING_PAYLOAD") {
 
-    request({
-      url:url,
-      json: true
-    }, (err, response, body) => {
+    
       var message3 = "Đây là một số VAPE & tinh dầu mới về tại shop. Xin mời bạn xem qua nhé";
       var productTest = {
         "type":"template",
@@ -217,8 +214,8 @@ function processPostback(event) {
 
       setTimeout( function () {
         sendMessage(senderId, {attachment: productTest});
-      }, 2000)
-    });
+      }, 2000);
+
 
     var url = 'https://17cfdde2fcd7945875e0d1acf50fe6c2:81baa2ea778b271889789e10581e8979@caphetau.myshopify.com/admin/smart_collections.json';
 
@@ -237,7 +234,7 @@ function processPostback(event) {
           }
         }
       }
-
+      console.log(element)
       sendMessage(senderId, {attachment: element});
     });
 
