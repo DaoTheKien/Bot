@@ -148,7 +148,7 @@ function processPostback(event) {
 
   if (payload === "SHOPPING_PAYLOAD") {
 
-    
+
       var message3 = "Đây là một số VAPE & tinh dầu mới về tại shop. Xin mời bạn xem qua nhé";
       var productTest = {
         "type":"template",
@@ -205,7 +205,7 @@ function processPostback(event) {
           ]
         }
 
-      }
+      };
 
 
       setTimeout( function () {
@@ -228,13 +228,15 @@ function processPostback(event) {
         "type": "template",
         "payload": {
           "template_type": "generic",
-          "elements": {
-            "title": smartCollection[0].title,
-            "image_url": smartCollection[0].image.src
-          }
+          "elements": [
+            {
+              "title": smartCollection[0].title,
+              "image_url": smartCollection[0].image.src
+            }
+          ]
         }
       }
-      console.log(element)
+      // console.log(element)
       sendMessage(senderId, {attachment: element});
     });
 
