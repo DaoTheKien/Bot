@@ -6,7 +6,7 @@ const shopify = new Shopify({
   password: '81baa2ea778b271889789e10581e8979'
 });
 
-var url = 'https://17cfdde2fcd7945875e0d1acf50fe6c2:81baa2ea778b271889789e10581e8979@caphetau.myshopify.com/admin/custom_collections.json?fields=id,title';
+
 
 var express = require("express");
 var request = require("request");
@@ -227,21 +227,21 @@ function processPostback(event) {
 
 };
 
-function get(input){
-  var test = {
-    "title": input[i].title,
-    "image_url": images[i],
-    "buttons": [
-       {
-          "type": "postback",
-          "payload": `C${input[i].id}`,
-          "title": "Chi tiết"
-       }
-    ]
- };
- sendMessage(senderId, {attachment: test});
-  }
-}
+// function get(input){
+//   var test = {
+//     "title": input[i].title,
+//     "image_url": images[i],
+//     "buttons": [
+//        {
+//           "type": "postback",
+//           "payload": `C${input[i].id}`,
+//           "title": "Chi tiết"
+//        }
+//     ]
+//  };
+//  sendMessage(senderId, {attachment: test});
+//   }
+
 
 // function processMessage(event) {
 //   var senderId = event.sender.id;
@@ -272,6 +272,14 @@ function sendMessage(recipientId, message) {
   });
 };
 
+var url = 'https://17cfdde2fcd7945875e0d1acf50fe6c2:81baa2ea778b271889789e10581e8979@caphetau.myshopify.com/admin/smart_collections.json'
+
+request({
+  url: url,
+  json: true
+}, (err, response, body) => {
+  endMessage(senderId, {attachment: body});
+});
 // function getImage(array) {
 //    var imageArray = [];
 //
