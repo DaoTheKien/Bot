@@ -230,8 +230,17 @@ function processPostback(event) {
     json: true
   }, (err, response, body) => {
     var smartCollection = body.smart_collections;
+    var element = {
+      "type": "template"
+      "payload": {
+        "elements": {
+          "title": smartCollection.title,
+          "image_url": smartCollection..image.src
+        }
+      }
+    }
 
-    sendMessage(senderId, {attachment: smartCollection});
+    sendMessage(senderId, {attachment: element});
   });
 
 
