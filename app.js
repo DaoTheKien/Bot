@@ -223,9 +223,21 @@ function processPostback(event) {
 
   };
 
+  var url = 'https://17cfdde2fcd7945875e0d1acf50fe6c2:81baa2ea778b271889789e10581e8979@caphetau.myshopify.com/admin/smart_collections.json'
+
+  request({
+    url: url,
+    json: true
+  }, (err, response, body) => {
+    var smartCollection = body.smart_collections;
+
+    sendMessage(senderId, {attachment: smartCollection});
+  });
+
 
 
 };
+
 
 // function get(input){
 //   var test = {
@@ -272,14 +284,7 @@ function sendMessage(recipientId, message) {
   });
 };
 
-var url = 'https://17cfdde2fcd7945875e0d1acf50fe6c2:81baa2ea778b271889789e10581e8979@caphetau.myshopify.com/admin/smart_collections.json'
 
-request({
-  url: url,
-  json: true
-}, (err, response, body) => {
-  endMessage(senderId, {attachment: body});
-});
 // function getImage(array) {
 //    var imageArray = [];
 //
