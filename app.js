@@ -231,16 +231,17 @@ function processPostback(event) {
           "elements": [
             {
               "title": smartCollection[0].title,
-              "image_url": smartCollection[0].image.src
-            }
-          ],
-          "buttons":[
-            {
-              "type":"web_url",
-              "url":"https://www.taudientu.com/collections/bong-dung-d-thay-cho-vape/products/thay-bong",
-              "title":"Chi tiết",
+              "image_url": smartCollection[0].image.src,
+              "buttons":[
+                {
+                  "type":"web_url",
+                  "url":"https://www.taudientu.com/collections/bong-dung-d-thay-cho-vape/products/thay-bong",
+                  "title":"Chi tiết",
+                }
+              ]
             }
           ]
+
         }
       }
       // console.log(element)
