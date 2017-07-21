@@ -159,7 +159,7 @@ function getImage(array) {
 function addCollection(input) {
    var elements = [];
    var images = getImage(input);
-   for (i = 0; i < 5; i++) {
+   for (i = 0; i < 4; i++) {
       if (_.isEmpty(input[i])) { break; }
       else {
 
