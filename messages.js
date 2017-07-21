@@ -159,7 +159,7 @@ function getImage(array) {
 function addCollection(input) {
    var elements = [];
    var images = getImage(input);
-   for (i = 0; i < 2; i++) {
+   for (i = 0; i < 3; i++) {
       if (_.isEmpty(input[i])) { break; }
       else {
 
@@ -257,16 +257,14 @@ function display(source, argv, url) {
    var addedElements = addedElements(argv);
 
    function quick_replies(array) {
-      if (array.length < 10) { return; }
-      else {
-         return [
-            {
-               "content_type": "text",
-               "title": "View more",
-               "payload": "VIEW_MORE_PAYLOAD"
-            }
-         ]
-      }
+      if (array.length > 3) { return [
+         {
+            "content_type": "text",
+            "title": "View more",
+            "payload": "VIEW_MORE_PAYLOAD"
+         }
+      ] 
+    }
    };
 
    var data = {

@@ -223,7 +223,7 @@ function processMessage(event) {
    var senderId = event.sender.id;
    var message = event.message.text;
    if (message === "View more") {
-      collection = collection.splice(5);
+      collection = collection.splice(3);
       sendMessage(senderId, messages.display(collection, "C"));
       return collection;
    }
